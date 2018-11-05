@@ -1,10 +1,7 @@
 require 'socket'
 
-# == Author
-# * Lee Jarvis - ljjarvis@gmail.com
-#
 # == Description
-# IRCSocket is an IRC wrapper around a TCPSocket. It implements all of the major 
+# IRCSocket is an IRC wrapper around a TCPSocket. It implements all of the major
 # commands laid out in {RFC 2812}[http://irchelp.org/irchelp/rfc/rfc2812.txt].
 # All these commands are available as instance methods of an IRCSocket Object.
 #
@@ -17,7 +14,7 @@ require 'socket'
 #    irc.user "Hulk", 0, "*", "I am Hulk Hogan"
 #
 #    while line = irc.read
-#         
+#
 #      # Join a channel after MOTD
 #      if line.split[1] == '376'
 #        irc.join "#mychannel"
@@ -58,7 +55,7 @@ class IRCSocket
     irc.connect
     irc
   end
-  
+
   # Create a new IRCSocket to connect to +server+ on +port+. Defaults to port 6667.
   # If an optional code block is given, it will be passed an instance of the IRCSocket.
   #
@@ -74,16 +71,16 @@ class IRCSocket
 
     if block_given?
       connect
-      yield self      
+      yield self
     end
   end
-  
+
   # Check if our socket is alive and connected to an IRC server
   def connected?
     @connected
   end
   alias connected connected?
-  
+
   # Connect to an IRC server, returns true on a successful connection, or
   # raises otherwise
   def connect
@@ -151,11 +148,14 @@ class IRCSocket
     write("NICK #{nickname}")
   end
 
-  # Send USER command 
+  # Send USER command
   def user(user, mode, unused, realname)
     write("USER #{user} #{mode} #{unused} :#{realname}")
   end
 
+  def lusers
+    write("LUSERS")
+  end
   # Send OPER command
   def oper(name, password)
     write("OPER #{name} #{password}")
@@ -287,6 +287,9 @@ class IRCSocket
     write_optional("USERS", target)
   end
 
+  def userip(target)
+    write_optional("USERIP", target)
+  end
   # Send USERHOST command
   def userhost(*users)
     write("USERHOST #{users.join(' ')}")
@@ -297,4 +300,3 @@ class IRCSocket
     @socket.close if connected?
   end
 end
-
