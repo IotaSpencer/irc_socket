@@ -6,9 +6,11 @@ Gem::Specification.new do |s|
   s.version = IRCSocket::VERSION
   s.summary = "An IRC wrapper around TCPSocket"
   s.description = <<~HEREDOC
-    An IRC wrapper around TCPSocket
+    An IRC wrapper around TCPSocket.
+
 
     This is a mirror/grab/active version of leejarvis/irc-socket
+
 
     This also uses ruby conventions in naming, specifically
     changing `irc-socket` to `irc_socket` to make `IRCSocket` fit
