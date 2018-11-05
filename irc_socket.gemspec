@@ -14,7 +14,7 @@ Gem::Specification.new do |s|
     `irc-socket` to `irc_socket` to make `IRCSocket` fit naming conventions.
   HEREDOC
   s.authors = ["Ken 'Iota' Spencer", "Lee 'injekt' Jarvis"]
-  s.email = ["me+irc_socket@iotaspencer.me", "ljjarvis@gmail.com"
+  s.email = ["me+irc_socket@iotaspencer.me", "ljjarvis@gmail.com"]
   s.homepage = "http://rubydoc.info/github/IotaSpencer/irc_socket"
   s.required_ruby_version = ">= 1.8.6"
   s.files = ['README.rdoc', 'LICENSE', 'lib/irc_socket.rb', 'spec/irc_socket_spec.rb']
