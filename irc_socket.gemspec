@@ -5,6 +5,8 @@ Gem::Specification.new do |s|
   s.name = 'irc_socket'
   s.version = IRCSocket::VERSION
   s.summary = "An IRC wrapper around TCPSocket"
+  s.licenses = ['MIT']
+  s.license = 'MIT'
   s.description = <<~HEREDOC
     An IRC wrapper around TCPSocket.
 
