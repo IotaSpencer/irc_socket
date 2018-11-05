@@ -2,7 +2,16 @@ Gem::Specification.new do |s|
   s.name = 'irc_socket'
   s.version = '1.0.1'
   s.summary = "An IRC wrapper around TCPSocket"
-  s.description = s.summary
+  s.description = <<~HEREDOC
+    An IRC wrapper around TCPSocket
+
+    This is a mirror/grab/active version of leejarvis/irc-socket
+
+    This also uses ruby conventions in naming, specifically
+    changing `irc-socket` to `irc_socket` to make `IRCSocket` fit
+    naming conventions.
+
+  HEREDOC
   s.authors = ["Lee Jarvis", "Ken Spencer"]
   s.email = "me+irc_socket@iotaspencer.me"
   s.homepage = "http://rubydoc.info/github/IotaSpencer/irc_socket"
