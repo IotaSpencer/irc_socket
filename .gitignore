@@ -1,2 +1,4 @@
 *.swp
 rdoc
+vendor/
+Gemfile.lock

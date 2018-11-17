@@ -50,8 +50,8 @@ class IRCSocket
   #  while data = irc.read
   #    puts data
   #  end
-  def self.open(server, port=6667, ssl=false, *args)
-    irc = new(server, port, ssl, *args)
+  def self.open(server, port=6667, ssl=false, local_host=nil, local_port=nil)
+    irc = new(server, port, ssl, local_host=local_host, local_port=local_port)
     irc.connect
     irc
   end
@@ -61,11 +61,12 @@ class IRCSocket
   #
   # NOTE: Using the block form does not mean the socket will send the applicable QUIT
   # command to leave the IRC server. You must send this yourself.
-  def initialize(server, port=6667, ssl=false, *args)
+  def initialize(server, port=6667, ssl=false, local_host=nil, local_port=nil)
     @server = server
     @port = port
     @ssl = ssl
-    puts *args
+    @local_host = local_host
+    @local_port = local_port
 
     @socket = nil
     @connected = false
@@ -82,6 +83,13 @@ class IRCSocket
   end
   alias connected connected?
 
+  def localhost?
+    #begin
+    IPAddr.new(@local_host)
+    #rescue
+    #end
+
+  end
   # Connect to an IRC server, returns true on a successful connection, or
   # raises otherwise
   def connect

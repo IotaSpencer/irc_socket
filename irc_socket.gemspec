@@ -18,5 +18,6 @@ Gem::Specification.new do |s|
   s.homepage = "http://rubydoc.info/github/IotaSpencer/irc_socket"
   s.required_ruby_version = ">= 1.8.6"
   s.files = ['README.rdoc', 'LICENSE', 'lib/irc_socket.rb', 'spec/irc_socket_spec.rb']
-  s.add_development_dependency('rspec', '= 2.1.0')
+  s.add_development_dependency 'rspec', '~> 2.1.0'
+  s.add_development_dependency 'pry'
 end
