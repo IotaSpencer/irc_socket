@@ -295,6 +295,11 @@ class IRCSocket
     write("USERHOST #{users.join(' ')}")
   end
 
+  # Send ZLINE command
+  def zline(reason, *args)
+    raw("ZLINE", args.join(' '), ":#{reason}")
+  end
+  
   # Close our socket instance
   def close
     @socket.close if connected?
