@@ -61,14 +61,14 @@ class IRCSocket
   #
   # NOTE: Using the block form does not mean the socket will send the applicable QUIT
   # command to leave the IRC server. You must send this yourself.
-  def initialize(server, port=6667, ssl=false)
+  def initialize(server, port=6667, ssl=false, *args)
     @server = server
     @port = port
     @ssl = ssl
 
     @socket = nil
     @connected = false
-
+    @args = args
     if block_given?
       connect
       yield self
@@ -84,7 +84,7 @@ class IRCSocket
   # Connect to an IRC server, returns true on a successful connection, or
   # raises otherwise
   def connect
-    socket = TCPSocket.new(server, port)
+    socket = TCPSocket.new(server, port, *@args)
 
     if @ssl
       require 'openssl'
@@ -299,7 +299,7 @@ class IRCSocket
   def zline(reason, *args)
     raw("ZLINE", args.join(' '), ":#{reason}")
   end
-  
+
   # Close our socket instance
   def close
     @socket.close if connected?
