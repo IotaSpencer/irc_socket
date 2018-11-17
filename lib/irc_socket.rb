@@ -65,6 +65,7 @@ class IRCSocket
     @server = server
     @port = port
     @ssl = ssl
+    puts args
 
     @socket = nil
     @connected = false
