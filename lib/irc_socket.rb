@@ -42,6 +42,12 @@ class IRCSocket
   # The TCPSocket instance
   attr_reader :socket
 
+  # The local host or bind address
+  attr_reader :local_host
+
+  # The local port or bind port
+  attr_reader :local_port
+
   # Creates a new IRCSocket and automatically connects
   #
   # === Example
@@ -70,7 +76,6 @@ class IRCSocket
 
     @socket = nil
     @connected = false
-    @args = args
     if block_given?
       connect
       yield self
@@ -93,7 +98,7 @@ class IRCSocket
   # Connect to an IRC server, returns true on a successful connection, or
   # raises otherwise
   def connect
-    socket = TCPSocket.new(server, port, *@args)
+    socket = TCPSocket.new(server, port, local_host, local_port)
 
     if @ssl
       require 'openssl'
