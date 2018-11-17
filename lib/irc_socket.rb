@@ -50,8 +50,8 @@ class IRCSocket
   #  while data = irc.read
   #    puts data
   #  end
-  def self.open(server, port=6667, ssl=false)
-    irc = new(server, port, ssl)
+  def self.open(server, port=6667, ssl=false, *args)
+    irc = new(server, port, ssl, *args)
     irc.connect
     irc
   end
