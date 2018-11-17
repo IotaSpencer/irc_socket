@@ -51,6 +51,7 @@ class IRCSocket
   #    puts data
   #  end
   def self.open(server, port=6667, ssl=false, *args)
+    puts args
     irc = new(server, port, ssl, *args)
     irc.connect
     irc
