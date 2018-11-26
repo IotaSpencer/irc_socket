@@ -167,6 +167,7 @@ class IRCSocket
     write("USER #{user} #{mode} #{unused} :#{realname}")
   end
 
+  # Send LUSERS command
   def lusers
     write("LUSERS")
   end
@@ -301,6 +302,7 @@ class IRCSocket
     write_optional("USERS", target)
   end
 
+  # Send USERIP command
   def userip(target)
     write_optional("USERIP", target)
   end
