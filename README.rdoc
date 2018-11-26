@@ -1,7 +1,7 @@
 == Description
 
 Inch CI
-    {<img src="http://inch-ci.org/github/IotaSpencer/irc_socket.svg?branch=master&style=shields" alt="Inline docs" />}[http://inch-ci.org/github/IotaSpencer/irc_socket]
+* {<img src="http://inch-ci.org/github/IotaSpencer/irc_socket.svg?branch=master&style=shields" alt="Inline docs" />}[http://inch-ci.org/github/IotaSpencer/irc_socket]
 
 IRCSocket is an IRC wrapper around a TCPSocket. It implements all of the major
 commands laid out in {RFC 2812}[http://irchelp.org/irchelp/rfc/rfc2812.txt].
